@@ -1,4 +1,7 @@
-<ion-tabs>
+<div *ngIf="!logStatus">
+      <app-login></app-login>
+</div>
+<ion-tabs *ngIf="logStatus">
 
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="tab1">
@@ -18,3 +21,4 @@
   </ion-tab-bar>
 
 </ion-tabs>
+

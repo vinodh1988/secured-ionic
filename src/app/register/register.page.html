@@ -1,0 +1,56 @@
+
+<div class="container">
+<form [formGroup]="regForm"  *ngIf="!otpScreen">
+    <h1>Register</h1>
+  <ion-item>
+    <ion-label position="fixed" >User name</ion-label>
+    <ion-input formControlName="username"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="fixed">First_name</ion-label>
+    <ion-input formControlName="firstname"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Email</ion-label>
+    <ion-input type="email" formControlName="email"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="fixed">Mobile</ion-label>
+    <ion-input type="number" formControlName="mobile"></ion-input>
+  </ion-item>
+<div *ngIf="!regForm.valid">Fill all the fields to enable Register button</div>
+  <ion-button color="dark" [disabled]="!regForm.valid" (click)="register()">Register</ion-button>
+</form>
+
+<div class="container" *ngIf="otpScreen">
+  <div *ngIf="otpflow">
+    <h3>OTP Verification</h3>
+    <br>
+    <br>
+    <ion-input placeholder="otp here" type="number" [(ngModel)]="otp"></ion-input>
+    <ion-button color="dark" (click)="verifyOTP()">Verify OTP</ion-button>
+  </div>
+  <div *ngIf="!otpflow">
+     
+          <ion-item>
+            <ion-label position="fixed">Password</ion-label>
+            <ion-input type="password" [(ngModel)]="pass"></ion-input>
+          </ion-item>
+          
+          <ion-item>
+            <ion-label position="fixed">Confirm Password</ion-label>
+            <ion-input type="password" [(ngModel)]="cpass"></ion-input>
+          </ion-item>
+          
+          <ion-button color="dark" (click)="updatePassword()">Update Password</ion-button>
+          
+          
+          </div>
+</div>
+
+
+  </div>
+  

@@ -12,6 +12,15 @@ const routes: Routes = [
         children: [
           {
             path: '',
+            loadChildren: '../register/register.module#RegisterPageModule'
+          }
+        ]
+      },
+      {
+        path: 'tab1',
+        children: [
+          {
+            path: '',
             loadChildren: '../tab1/tab1.module#Tab1PageModule'
           }
         ]
